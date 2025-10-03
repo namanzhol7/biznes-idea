@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        System.out.println("===== Alisher's Hot-Stone Massage (Home Service) =====");
+        System.out.println(" Заказываете процедуру на дом.");
+        System.out.println(" Уточнение адреса и предпочтений.");
+       
+        System.out.print("Введите ваш adres: ");
+        String adres = s.nextLine();
+       
+        if (adres.toLowerCase().contains("za gorodom") || adres.toLowerCase().contains("vne konaeva")) {
+            System.out.println("Если вы naxodites za gorodom, massazhist ne poedet.");
+            System.out.println("Процедура отменена. -> КОНЕЦ");
+            s.close();
+            return;
+        }
+       
+        System.out.print("Введите ваши predpochteniya po massazhu: ");
+        String predpochteniya = s.nextLine();
+       
+        System.out.println("Adres (" + adres + ") и " + predpochteniya + " uchteny.");
+
+        System.out.println(" K vam priezzhaet massazhist s oborudovaniem.");
+
+        System.out.println(" Vy vybiraete tarif i oplachivaete.");
+       
+        double stoimost = 20000.0;
+        double procentAvans = 0.30;
+       
+        double avans = stoimost * procentAvans;
+        double ostatok = stoimost - avans;
+
+        System.out.println("Vybrannyy tarif: " + (int)stoimost + " KZT.");
+        System.out.printf("Oplachivaete chast (avans) v nachale: %.0f KZT.", avans);
+        System.out.println(" OPLATA V NACHALE ");
+        System.out.println("Avans uspeshno vnesen. Seans nachalsya.");
+        System.out.println("\n* Massazh zavershen *");
+        System.out.printf("Ostaetsya oplachivaem ostatok v kontse seansa: %.0f KZT.\n", ostatok);
+        System.out.println("Ostatok uspeshno oplachen.");
+
+        System.out.println(" Procedura zavershena. -> KONEC ");
+       
+        s.close();
+    }
+}
